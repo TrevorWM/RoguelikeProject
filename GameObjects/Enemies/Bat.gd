@@ -26,6 +26,9 @@ func accelerate_towards_point(point):
 	sprite.flip_h = velocity.x < 0
 
 
+func destroy():
+	queue_free()
 
 func _on_Hurtbox_area_entered(area):
-	queue_free()
+	if area.is_in_group("Projectiles"):
+		destroy()

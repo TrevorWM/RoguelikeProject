@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GameObjects/TileMaps/PrototypeTileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameObjects/Enemies/Bat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GameObjects/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameObjects/Managers/EnemySpawner.tscn" type="PackedScene" id=4]
 
 [node name="PrototypingScene" type="Node2D"]
 __meta__ = {
@@ -28,3 +29,8 @@ smoothing_enabled = true
 
 [node name="Bat" parent="." instance=ExtResource( 2 )]
 position = Vector2( 16, 62 )
+
+[node name="EnemySpawner" parent="." instance=ExtResource( 4 )]
+position = Vector2( 75, 188 )
+MAX_ENEMIES = 1
+SPAWN_TIME = 1000
