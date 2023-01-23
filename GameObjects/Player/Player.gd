@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 export(int) var MAX_SPEED: int = 100
 export(int) var health: int = 10
-export(PackedScene) var FIREBALL: PackedScene = preload("res://GameObjects/Projectiles/Fireball.tscn")
+export(PackedScene) var WEAPON: PackedScene = preload("res://GameObjects/Projectiles/Fireball.tscn")
 
 var velocity = Vector2.ZERO
 
@@ -36,15 +36,15 @@ func process_movement():
 func process_click():
 	if Input.is_action_just_pressed("ui_click") and attackTimer.is_stopped():
 		var direction = self.global_position.direction_to(get_global_mouse_position()).angle()
-		shoot(direction)
+		attack(direction)
 
-func shoot(direction):
-	if FIREBALL:
-		var fireball = FIREBALL.instance()
-		get_tree().current_scene.add_child(fireball)
-		fireball.global_position = self.global_position
+func attack(direction):
+	if WEAPON:
+		var weapon = WEAPON.instance()
+		get_tree().current_scene.add_child(weapon)
+		weapon.global_position = self.global_position
 		
-		var fireballRotation = direction
-		fireball.rotation = fireballRotation
+		var weaponRotation = direction
+		weapon.rotation = weaponRotation
 		
 		attackTimer.start()
