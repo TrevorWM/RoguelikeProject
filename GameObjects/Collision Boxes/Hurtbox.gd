@@ -2,7 +2,7 @@ extends Area2D
 
 export(bool) var show_hit = true
 
-const hit_effect = preload("res://Effects/HitEffect.tscn")
+#const hit_effect = preload("res://Effects/HitEffect.tscn")
 
 onready var timer = $Timer
 
@@ -17,11 +17,7 @@ func start_invincibility(duration):
 	timer.start(duration)
 
 func create_hit_effect():
-	var effect = hit_effect.instance()
-	var main = get_tree().current_scene
-	
-	main.add_child(effect)
-	effect.global_position = global_position
+	pass
 	
 
 func _on_Timer_timeout():
@@ -35,3 +31,4 @@ func _on_Hurtbox_invincibility_started():
 
 func _on_Hurtbox_invincibility_ended():
 	set_deferred("monitoring", true)
+
