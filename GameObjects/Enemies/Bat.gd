@@ -25,3 +25,7 @@ func accelerate_towards_point(point):
 	velocity = direction_vector * MAX_SPEED
 	sprite.flip_h = velocity.x < 0
 
+
+
+func _on_Hurtbox_area_entered(area):
+	queue_free()
