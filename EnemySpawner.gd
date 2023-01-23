@@ -10,7 +10,9 @@ onready var spawnTimer = $Timer
 # Called when the node enters the scene tree for the first time.
 func _process(_delta):
 	if spawnTimer.is_stopped():
-		spawn_enemy()
+		var numEnemies = get_tree().get_nodes_in_group("Enemies").size()
+		if numEnemies < MAX_ENEMIES:
+			spawn_enemy()
 
 
 func spawn_enemy():

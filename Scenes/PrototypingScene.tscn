@@ -32,5 +32,3 @@ position = Vector2( 16, 62 )
 
 [node name="EnemySpawner" parent="." instance=ExtResource( 4 )]
 position = Vector2( 75, 188 )
-MAX_ENEMIES = 1
-SPAWN_TIME = 1000
